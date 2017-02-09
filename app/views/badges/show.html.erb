@@ -1,0 +1,50 @@
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+<div class="well" style="padding-bottom: 0px;">
+  		
+		<table>
+			<tr>
+				<td>
+					<%= image_tag(@json["icon_url"], :style => "height: 40px; float: left; margin-right: 5px;") %>
+					<div>
+						<h4><%= @json["name"]["en-US"] %><br /><small><%= @json["current_version"]["version"] %>, by <%=raw  @json["authors"].map { |a| link_to a["name"], a["url"]}.join(", ") %></small></h4>
+					</div>
+				</td>
+				<td style="text-align: right;">
+					<h5><small>
+							<% wholestars = @json["ratings"]["average"].to_f.floor %>
+							<% reststars = @json["ratings"]["average"].to_f - wholestars %>
+							<% for i in 1..5 %>
+								<% if i <= wholestars %>
+									<%= image_tag "star.png" %>
+								<% elsif reststars >= 0.75 %>
+									<%= image_tag "star-threequarter.png" %>
+									<% reststars = 0 %>
+								<% elsif reststars >= 0.5 %>
+									<%= image_tag "star-half.png" %>
+									<% reststars = 0 %>
+								<% elsif reststars >= 0.25 %>
+									<%= image_tag "star-quarter.png" %>
+									<% reststars = 0 %>
+								<% else %>
+									<%= image_tag "star-empty.png" %>
+								<% end %>
+							<% end %><br />
+							<%= link_to @jsonReviews["count"].to_s + " user reviews", @json["url"]%><br />
+							<%= @json["average_daily_users"] %> users
+					</small></h5>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px; text-align: justify;" colspan="2">
+					<%= @json["summary"]["en-US"] %>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding-top: 5px; text-align: right;" colspan="2">
+				<h6><small><a href="https://github.com/wiwie/mozilla-addon-badge">Mozilla Addon Badge</a></small></h6>
+			</td>
+			</tr>
+		</table>
+  </div>
