@@ -105,7 +105,7 @@
          id="tspan4294"
          x="123.86873"
          y="60.295845"
-         style="font-size:22.5px"><%= @json["name"]["en-US"] %></tspan></text>
+         style="font-size:22.5px"><%=raw link_to @json["name"]["en-US"], @json["url"], target: "_blank"%></tspan></text>
     <g
        id="g6120"
        transform="translate(-13.010152,-9.979695)">
@@ -135,7 +135,7 @@
          y="110.56165"
          x="70.171097"
          sodipodi:role="line">by </tspan><tspan
-         style="font-size:14px;fill:#458bca;fill-opacity:1"><%=raw @json["authors"].map { |a| link_to a["name"], a["url"]}.join(", ") %></tspan></text>
+         style="font-size:14px;fill:#458bca;fill-opacity:1"><%=raw @json["authors"].map { |a| link_to a["name"], a["url"], target: "_blank"}.join(", ") %></tspan></text>
 
     <g
       transform="translate(0,3)">
@@ -180,7 +180,7 @@
            y="81.058586"
            x="440"
            id="tspan4298-6-6"
-           sodipodi:role="line"><%= link_to @jsonReviews["count"].to_s + " user reviews", @json["url"]%></tspan></text>
+           sodipodi:role="line"><%= link_to @jsonReviews["count"].to_s + " user reviews", @json["url"] + "/reviews", target: "_blank"%></tspan></text>
     </a>
     <text
        xml:space="preserve"
@@ -214,6 +214,6 @@
          id="tspan4298-3"
          x="337.3598"
          y="123"
-         style="font-size:11.25px;fill:#AAAAAA;fill-opacity:1"><a href="https://github.com/wiwie/mozilla-addon-badge">Mozilla Addon Badge</a></tspan></text>
+         style="font-size:11.25px;fill:#AAAAAA;fill-opacity:1"><a href="https://github.com/wiwie/mozilla-addon-badge" target="_blank">Mozilla Addon Badge</a></tspan></text>
   </g>
 </svg>
