@@ -8,7 +8,7 @@
 				<td>
 					<%= image_tag(@json["icon_url"], :style => "height: 40px; float: left; margin-right: 5px;") %>
 					<div>
-						<h4><%= @json["name"]["en-US"] %><br /><small><%= @json["current_version"]["version"] %>, by <%=raw  @json["authors"].map { |a| link_to a["name"], a["url"]}.join(", ") %></small></h4>
+						<h4><%= @json["name"]["en-US"] %><br /><small><%= @json["current_version"]["version"] %>, by <%=raw  @json["authors"].map { |a| link_to a["name"], a["url"], target: "_blank"}.join(", ") %></small></h4>
 					</div>
 				</td>
 				<td style="text-align: right;">
@@ -31,7 +31,7 @@
 									<%= image_tag "star-empty.png" %>
 								<% end %>
 							<% end %><br />
-							<%= link_to @jsonReviews["count"].to_s + " user reviews", @json["url"]%><br />
+							<%= link_to @jsonReviews["count"].to_s + " user reviews", @json["url"], target: "_blank"%><br />
 							<%= @json["average_daily_users"] %> users
 					</small></h5>
 				</td>
@@ -43,7 +43,7 @@
 			</tr>
 			<tr>
 				<td style="padding-top: 5px; text-align: right;" colspan="2">
-				<h6><small><a href="https://github.com/wiwie/mozilla-addon-badge">Mozilla Addon Badge</a></small></h6>
+				<h6><small><a href="https://github.com/wiwie/mozilla-addon-badge" target="_blank">Mozilla Addon Badge</a></small></h6>
 			</td>
 			</tr>
 		</table>
