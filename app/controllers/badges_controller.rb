@@ -24,6 +24,8 @@ class BadgesController < ApplicationController
 		response = Net::HTTP.get(uri)
 		@jsonReviews = JSON.parse(response)
 
-		render 'show.svg', layout: false
+		respond_to do |format|
+			format.svg { render 'show.svg', layout: false}
+		end
 	end
 end
